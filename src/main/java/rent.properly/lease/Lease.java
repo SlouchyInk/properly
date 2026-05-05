@@ -22,6 +22,7 @@ public class Lease {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "property_id", nullable = false)
     private Property property;
 
     private LocalDateTime moveInDate;

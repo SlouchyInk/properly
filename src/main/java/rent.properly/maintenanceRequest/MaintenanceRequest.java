@@ -1,9 +1,6 @@
 package rent.properly.maintenanceRequest;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,8 +20,12 @@ public class MaintenanceRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "property_id", nullable = false)
     private Property property;
 
+    @ManyToOne
+    @JoinColumn(name = "tenant_id", nullable = false)
     private Tenant tenant;
 
     private String description;
@@ -33,7 +34,8 @@ public class MaintenanceRequest {
 
     private LocalDateTime dateUpdated;
 
-    private Enum status;
+    @Enumerated(EnumType.STRING)
+    private MaintenanceRequestStatus status;
 
     private BigInteger cost;
 

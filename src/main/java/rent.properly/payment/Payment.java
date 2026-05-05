@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import rent.properly.lease.Lease;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 
@@ -16,6 +17,7 @@ import java.time.LocalDateTime;
 @Entity
 public class Payment {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -23,7 +25,7 @@ public class Payment {
     @JoinColumn(name = "lease_id")
     private Lease lease;
 
-    private BigInteger paymentAmount;
+    private BigDecimal paymentAmount;
 
     private Enum status;
 

@@ -30,5 +30,6 @@ public class Property {
     private String zipcode;
 
     @ManyToOne
+    @JoinColumn(name = "landlord_id")
     private Landlord landlord;
 }
