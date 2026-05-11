@@ -1,18 +1,18 @@
 package rent.properly.maintenanceRequest;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import rent.properly.property.Property;
 import rent.properly.tenant.Tenant;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = "properties")
 @Entity
 public class MaintenanceRequest {
 

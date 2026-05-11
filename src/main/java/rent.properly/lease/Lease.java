@@ -1,9 +1,7 @@
 package rent.properly.lease;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import rent.properly.payment.Payment;
 import rent.properly.property.Property;
 import rent.properly.tenant.Tenant;
@@ -16,9 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = "properties")
 @Entity
 public class Lease {
 
