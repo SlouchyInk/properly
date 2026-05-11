@@ -8,7 +8,6 @@ import rent.properly.property.Property;
 import rent.properly.tenant.Tenant;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 @Data

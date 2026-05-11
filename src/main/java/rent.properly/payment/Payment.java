@@ -26,6 +26,7 @@ public class Payment {
 
     private BigDecimal paymentAmount;
 
+    @Enumerated(EnumType.STRING)
     private PaymentStatus status;
 
     private LocalDateTime paymentDate;

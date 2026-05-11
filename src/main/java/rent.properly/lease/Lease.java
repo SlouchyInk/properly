@@ -52,5 +52,5 @@ public class Lease {
     private Set<Tenant> tenants;
 
     @OneToMany(mappedBy = "lease")
-    private List<Payment> paymentIds = new ArrayList<>();
+    private List<Payment> payments = new ArrayList<>();
 }
