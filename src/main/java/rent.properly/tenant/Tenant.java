@@ -10,7 +10,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "properties")
+@ToString(exclude = "leases")
 @Entity
 public class Tenant {
 

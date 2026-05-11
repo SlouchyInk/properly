@@ -5,14 +5,13 @@ import lombok.*;
 import rent.properly.lease.Lease;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "properties")
+@ToString(exclude = "lease")
 @Entity
 public class Payment {
 

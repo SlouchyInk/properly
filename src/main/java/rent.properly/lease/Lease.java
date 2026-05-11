@@ -7,9 +7,7 @@ import rent.properly.property.Property;
 import rent.properly.tenant.Tenant;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -18,7 +16,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "properties")
+@ToString(exclude = {"tenants", "payments"})
 @Entity
 public class Lease {
 
