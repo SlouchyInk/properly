@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "properties")
+@ToString(exclude = {"property", "tenant"})
 @Entity
 public class MaintenanceRequest {
 

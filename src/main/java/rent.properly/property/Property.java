@@ -3,16 +3,12 @@ package rent.properly.property;
 import jakarta.persistence.*;
 import lombok.*;
 import rent.properly.landlord.Landlord;
-import rent.properly.lease.Lease;
-
-import java.util.Collection;
-import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "properties")
+@ToString(exclude = "landlord")
 @Entity
 public class Property {
     @Id
