@@ -28,6 +28,6 @@ public class Tenant {
 
     private String lastName;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "tenants")
     private Set<Lease> leases;
 }

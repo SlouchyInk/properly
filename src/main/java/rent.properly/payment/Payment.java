@@ -1,6 +1,5 @@
 package rent.properly.payment;
 
-import com.sun.source.doctree.EscapeTree;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +26,7 @@ public class Payment {
 
     private BigDecimal paymentAmount;
 
-    private Enum status;
+    private PaymentStatus status;
 
     private LocalDateTime paymentDate;
 }

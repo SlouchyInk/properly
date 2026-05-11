@@ -4,11 +4,16 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import rent.properly.payment.Payment;
 import rent.properly.property.Property;
 import rent.properly.tenant.Tenant;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -25,17 +30,18 @@ public class Lease {
     @JoinColumn(name = "property_id", nullable = false)
     private Property property;
 
-    private LocalDateTime moveInDate;
+    private LocalDate moveInDate;
 
-    private LocalDateTime moveOutDate;
+    private LocalDate moveOutDate;
 
-    private BigInteger rentAmount;
+    private BigDecimal rentAmount;
 
-    private Enum status;
+    @Enumerated(EnumType.STRING)
+    private LeaseStatus status;
 
-    private LocalDateTime rentDueDate;
+    private LocalDate rentDueDate;
 
-    private BigInteger securityDeposit;
+    private BigDecimal securityDeposit;
 
     @ManyToMany
     @JoinTable(
@@ -44,4 +50,7 @@ public class Lease {
             inverseJoinColumns = @JoinColumn(name = "tenant_id")
     )
     private Set<Tenant> tenants;
+
+    @OneToMany(mappedBy = "lease")
+    private List<Payment> paymentIds = new ArrayList<>();
 }
