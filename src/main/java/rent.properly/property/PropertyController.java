@@ -19,7 +19,7 @@ public class PropertyController {
 
     @PostMapping
     public ResponseEntity<PropertyDto> createProperty(@RequestBody PropertyDto propertyDto) {
-        return ResponseEntity.ok(propertyService.createProperty(propertyDto));
+        return ResponseEntity.created(null).body(propertyService.createProperty(propertyDto));
     }
 
     @PutMapping("/{id}")
