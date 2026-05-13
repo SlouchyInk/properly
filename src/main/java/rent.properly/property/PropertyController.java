@@ -17,7 +17,7 @@ public class PropertyController {
         return ResponseEntity.ok(propertyService.getPropertyById(id));
     }
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<PropertyDto> createProperty(@RequestBody PropertyDto propertyDto) {
         return ResponseEntity.ok(propertyService.createProperty(propertyDto));
     }
@@ -28,7 +28,7 @@ public class PropertyController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteProperty(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteProperty(@PathVariable Long id) {
         propertyService.deleteProperty(id);
         return ResponseEntity.ok().build();
     }

@@ -32,7 +32,7 @@ public class PropertyServiceImpl implements PropertyService {
         property.setAddressLine2(updatedProperty.getAddressLine2());
         property.setCity(updatedProperty.getCity());
         property.setState(updatedProperty.getState());
-        property.setZipcode(updatedProperty.getZipCode());
+        property.setZipcode(updatedProperty.getZipcode());
 
         Property updatedPropertyEntity = propertyRepository.save(property);
         return propertyMapper.toDto(updatedPropertyEntity);
