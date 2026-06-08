@@ -1,6 +1,13 @@
 package rent.properly.lease;
 
 import jakarta.persistence.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import rent.properly.property.PropertyMapper;
+import rent.properly.tenant.Tenant;
+
+import java.util.Set;
+import java.util.stream.Collectors;
 import lombok.*;
 import rent.properly.payment.Payment;
 import rent.properly.property.Property;
