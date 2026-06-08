@@ -15,6 +15,7 @@ public interface LeaseMapper {
     LeaseDto toDto(Lease lease);
 
     @Mapping(target = "tenants", ignore = true)
+    @Mapping(target = "property.id", source = "property.id")
     Lease toEntity(LeaseDto leaseDto);
 
     default Set<Long> mapTenantIds(Set<Tenant> tenants) {
