@@ -38,5 +38,4 @@ public class MaintenanceRequest {
     private MaintenanceRequestStatus status;
 
     private BigDecimal cost;
-
 }
