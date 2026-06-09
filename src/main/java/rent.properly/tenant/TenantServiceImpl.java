@@ -1,6 +1,7 @@
 package rent.properly.tenant;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import rent.properly.exception.ResourceNotFoundException;
 
 @Service
@@ -20,6 +21,7 @@ public class TenantServiceImpl implements TenantService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public TenantDto getTenantById(Long id) {
         Tenant tenant = tenantRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Tenant", id));
@@ -27,6 +29,7 @@ public class TenantServiceImpl implements TenantService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public TenantDto updateTenant(Long id, TenantDto updatedTenant) {
         Tenant tenant = tenantRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Tenant", id));
