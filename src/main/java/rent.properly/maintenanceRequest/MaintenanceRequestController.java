@@ -2,6 +2,7 @@ package rent.properly.maintenanceRequest;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import rent.properly.tenant.TenantRepository;
 
 @RestController
 @RequestMapping("/api/maintenance-requests")

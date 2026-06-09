@@ -1,22 +1,30 @@
 package rent.properly.maintenanceRequest;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import rent.properly.exception.ResourceNotFoundException;
+import rent.properly.tenant.TenantRepository;
 
 @Service
 public class MaintenanceRequestServiceImpl implements MaintenanceRequestService{
     private final MaintenanceRequestRepository maintenanceRequestRepository;
     private final MaintenanceRequestMapper maintenanceRequestMapper;
+    private final TenantRepository tenantRepository;
 
-    public MaintenanceRequestServiceImpl(MaintenanceRequestRepository maintenanceRequestRepository, MaintenanceRequestMapper maintenanceRequestMapper) {
+    public MaintenanceRequestServiceImpl(MaintenanceRequestRepository maintenanceRequestRepository,
+                                         MaintenanceRequestMapper maintenanceRequestMapper,
+                                         TenantRepository tenantRepository) {
         this.maintenanceRequestRepository = maintenanceRequestRepository;
         this.maintenanceRequestMapper = maintenanceRequestMapper;
+        this.tenantRepository = tenantRepository;
     }
 
     @Override
+    @Transactional
     public MaintenanceRequestDto createMaintenanceRequest(MaintenanceRequestDto maintenanceRequestDto) {
-        MaintenanceRequest maintenanceRequest = maintenanceRequestRepository.save(maintenanceRequestMapper.toEntity(maintenanceRequestDto));
-        return maintenanceRequestMapper.toDto(maintenanceRequest);
+        MaintenanceRequest entity = maintenanceRequestMapper.toEntity(maintenanceRequestDto);
+        entity.setTenant(tenantRepository.getReferenceById(maintenanceRequestDto.getTenantId()));
+        return maintenanceRequestMapper.toDto(maintenanceRequestRepository.save(entity));
     }
 
     @Override
